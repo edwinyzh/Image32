@@ -6,6 +6,9 @@
         <Projects Include="Img32_Library.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Img32_Library_ExtraUnits.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="Img32_VCL_Dsgn.dproj">
             <Dependencies/>
         </Projects>
@@ -26,6 +29,15 @@
     <Target Name="Img32_Library:Make">
         <MSBuild Projects="Img32_Library.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Img32_Library_ExtraUnits">
+        <MSBuild Projects="Img32_Library_ExtraUnits.dproj"/>
+    </Target>
+    <Target Name="Img32_Library_ExtraUnits:Clean">
+        <MSBuild Projects="Img32_Library_ExtraUnits.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Img32_Library_ExtraUnits:Make">
+        <MSBuild Projects="Img32_Library_ExtraUnits.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Img32_VCL_Dsgn">
         <MSBuild Projects="Img32_VCL_Dsgn.dproj"/>
     </Target>
@@ -36,13 +48,13 @@
         <MSBuild Projects="Img32_VCL_Dsgn.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Img32_Library;Img32_VCL_Dsgn"/>
+        <CallTarget Targets="Img32_Library;Img32_Library_ExtraUnits;Img32_VCL_Dsgn"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Img32_Library:Clean;Img32_VCL_Dsgn:Clean"/>
+        <CallTarget Targets="Img32_Library:Clean;Img32_Library_ExtraUnits:Clean;Img32_VCL_Dsgn:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Img32_Library:Make;Img32_VCL_Dsgn:Make"/>
+        <CallTarget Targets="Img32_Library:Make;Img32_Library_ExtraUnits:Make;Img32_VCL_Dsgn:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

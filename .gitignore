@@ -10,3 +10,4 @@
 /source/Packages/*.local
 /source/Packages/Img32_Library.res
 /source/Packages/Img32_VCL_Dsgn.res
+/source/Packages/*.res
